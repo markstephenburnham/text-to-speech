@@ -3,6 +3,11 @@ Sample script to to generate an MP3 speech file using Google Text-to-Speech
 
 The script was created to run on MacOS, Big Sur
 
+### Functions
+
+#### synthesize_ssml
+#### process_txt_block
+
 NOTE:  voices are hardcoded in this version
 
 You will need to install ffmpeg and afplay to follow these instructions
