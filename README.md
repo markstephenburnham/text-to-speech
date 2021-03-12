@@ -26,6 +26,7 @@ export GOOGLE_APPLICATION_CREDENTIALS=<path to your json credentials file>
 ```  
   
 #### 3) run the processing script to process your transcription
+```
 ~/dev/textToSpeech % ./t2s.py --filename snippet.txt
 output path:/Users/markburnham/dev/textToSpeech/1615204496
 Audio content written to file /Users/markburnham/dev/textToSpeech/1615204496/1.mp3
@@ -36,6 +37,7 @@ Audio content written to file /Users/markburnham/dev/textToSpeech/1615204496/5.m
 Audio content written to file /Users/markburnham/dev/textToSpeech/1615204496/6.mp3
 Audio content written to file /Users/markburnham/dev/textToSpeech/1615204496/7.mp3
 Audio content written to file /Users/markburnham/dev/textToSpeech/1615204496/8.mp3
+```
 
 #### 4) cd into the new directory
 % cd 1615204496
