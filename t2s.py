@@ -42,6 +42,7 @@ def synthesize_ssml(ssml,thevoice,output_file):
         out.write(response.audio_content)
         print('Audio content written to file ' + output_file)
 
+# this is assumes a simple format as used by Rev.com - see sample        
 def process_txt_block(speaker,text):
    
     global counter, d, output_path
