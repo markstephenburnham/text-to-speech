@@ -22,10 +22,9 @@ def synthesize_ssml(ssml,thevoice,output_file):
     input_text = texttospeech.SynthesisInput(ssml=ssml)
 
     # Note: the voice can also be specified by name.
-    # Names of voices can be retrieved with client.list_voices().
+    # A list of available voices can be retrieved with client.list_voices().
     voice = texttospeech.VoiceSelectionParams(
         language_code="en-US",
-#        name="en-US-Standard-C",
         name=thevoice,
     )
 
@@ -68,9 +67,9 @@ def process_txt_block(speaker,text):
     else:
         voice = 'en-US-Wavenet-J'        
     counter += 1
- #   print("output_path:" + output_path)
+
     output_file = output_path + "/" + str(counter) + ".mp3"
-#    print(output_file)
+
     ssml = "<speak>" + text + "</speak>"
     synthesize_ssml(ssml,voice,output_file)
 
