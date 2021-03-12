@@ -12,7 +12,7 @@ NOTE:  voices are hardcoded in this version
 
 You will need to install ffmpeg and afplay to follow these instructions
 
-### STEPS
+### STEP BY STEP
 
 #### 1) get a Google Cloud Account and install
 
