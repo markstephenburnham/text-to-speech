@@ -34,7 +34,7 @@ This will create a new directory that you'll need to use in STEP 5.
 Processing file: snippet.txt
 Voice 1: en-US-Wavenet-H
 Voice 2: en-US-Wavenet-J
-Output Path:/Users/markburnham/dev/textToSpeech/1615648935                         <= you'll need this in the next 2 steps
+Output Path:/Users/markburnham/dev/textToSpeech/1615648935    <= you'll need this in the next 2 steps
 Audio content written to file /Users/markburnham/dev/textToSpeech/1615648935/1.mp3
 Audio content written to file /Users/markburnham/dev/textToSpeech/1615648935/2.mp3
 Audio content written to file /Users/markburnham/dev/textToSpeech/1615648935/3.mp3
