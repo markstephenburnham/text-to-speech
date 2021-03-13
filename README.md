@@ -70,7 +70,7 @@ file '/Users/markburnham/dev/textToSpeech/1615648935/6.mp3'
 file '/Users/markburnham/dev/textToSpeech/1615648935/7.mp3'
 file '/Users/markburnham/dev/textToSpeech/1615648935/8.mp3'
 ```
-#### 6) use ffmpeg to process the filelist you created - this will concatenate the single files into a single mp3
+#### 6) use ffmpeg to process the filelist you created - this will concatenate the separate files into a single mp3
 
 ```
 ~/dev/textToSpeech/1615648935 % ffmpeg -f concat -safe 0 -i filelist -c copy snippet.mp3
