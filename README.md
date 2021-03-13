@@ -16,6 +16,8 @@ You will need to install ffmpeg and afplay to follow these instructions
 
 #### 1) get a Google Cloud Account and install
 
+https://cloud.google.com/speech-to-text
+
 pip3 install --upgrade google-cloud-speech
 
 #### 2) export variables
