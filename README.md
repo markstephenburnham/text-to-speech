@@ -28,7 +28,7 @@ export GOOGLE_APPLICATION_CREDENTIALS=<path to your json credentials file>
 #### 3) run the processing script to process your transcription
 ```
 ~/dev/textToSpeech % ./t2s.py --filename snippet.txt
-output path:/Users/markburnham/dev/textToSpeech/1615204496
+output path:/Users/markburnham/dev/textToSpeech/1615204496 **<= you'll use this in step 5**
 Audio content written to file /Users/markburnham/dev/textToSpeech/1615204496/1.mp3
 Audio content written to file /Users/markburnham/dev/textToSpeech/1615204496/2.mp3
 Audio content written to file /Users/markburnham/dev/textToSpeech/1615204496/3.mp3
@@ -44,7 +44,7 @@ Audio content written to file /Users/markburnham/dev/textToSpeech/1615204496/8.m
 
 #### 5) create a file to be used by ffmpeg to concatenate the mp3 files
 ```
-% ls -ltr *.mp3|awk '{print "file '\''/Users/markburnham/dev/textToSpeech/1615204496/"$NF"'\''"}' > filelist
+% ls -ltr *.mp3|awk '{print "file '\''<output path from step 3>/"$NF"'\''"}' > filelist
 ```
 #### 6) use ffmpeg to process the filelist you created - this will concatenate the single files into one mp3
 
