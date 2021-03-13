@@ -1,5 +1,5 @@
 # text-to-speech
-Sample script to to generate an MP3 speech file using Google Text-to-Speech
+Sample script to to generate an mp3 speech file using Google Text-to-Speech
 
 The script was created to run on MacOS, Big Sur
 
