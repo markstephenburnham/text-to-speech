@@ -106,5 +106,5 @@ size=     113kB time=00:00:28.89 bitrate=  32.1kbits/s speed=1.13e+03x
 video:0kB audio:113kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: 0.204876%
 ```
 
-#### 7) play your nice mp3
+#### 7) play your new mp3!
 % afplay snippet.mp3
