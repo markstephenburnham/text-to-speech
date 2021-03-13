@@ -43,9 +43,9 @@ Audio content written to file /Users/markburnham/dev/textToSpeech/1615204496/8.m
 % cd 1615204496
 
 #### 5) create a file to be used by ffmpeg to concatenate the mp3 files
+```
 % ls -ltr *.mp3|awk '{print "file '\''/Users/markburnham/dev/textToSpeech/1615204496/"$NF"'\''"}' > filelist
-% ls -ltr *.mp3|awk '{print "file '\''/Users/markburnham/dev/textToSpeech/1610624242/"$NF"'\''"}' > filelist
-
+```
 #### 6) use ffmpeg to process the filelist you created - this will concatenate the single files into one mp3
 
 ```
