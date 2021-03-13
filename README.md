@@ -27,6 +27,8 @@ export GOOGLE_APPLICATION_CREDENTIALS=<path to your json credentials file>
   
 #### 3) run the processing script to process your transcription
 
+This will create a new directory that you'll need to use in STEP 5.
+
 ```
 ~/dev/textToSpeech % ./t2s.py --filename snippet.txt
 output path:/Users/markburnham/dev/textToSpeech/1615204496 <= USE THIS IN STEP 5
