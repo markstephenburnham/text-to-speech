@@ -107,4 +107,6 @@ video:0kB audio:113kB subtitle:0kB other streams:0kB global headers:0kB muxing o
 ```
 
 #### 7) play your new mp3!
+```
 % afplay snippet.mp3
+```
