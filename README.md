@@ -1,7 +1,7 @@
 # text-to-speech
 Sample script to to generate an mp3 speech file using Google Text-to-Speech
 
-The script was created to run on MacOS, Big Sur
+The processes were tested on MacOS, Big Sur, you'll likely need to modify for other systems.
 
 ### Functions
 
@@ -30,29 +30,48 @@ export GOOGLE_APPLICATION_CREDENTIALS=<path to your json credentials file>
 This will create a new directory that you'll need to use in STEP 5.
 
 ```
-~/dev/textToSpeech % ./t2s.py --filename snippet.txt
-output path:/Users/markburnham/dev/textToSpeech/1615204496 <= USE THIS IN STEP 5
-Audio content written to file /Users/markburnham/dev/textToSpeech/1615204496/1.mp3
-Audio content written to file /Users/markburnham/dev/textToSpeech/1615204496/2.mp3
-Audio content written to file /Users/markburnham/dev/textToSpeech/1615204496/3.mp3
-Audio content written to file /Users/markburnham/dev/textToSpeech/1615204496/4.mp3
-Audio content written to file /Users/markburnham/dev/textToSpeech/1615204496/5.mp3
-Audio content written to file /Users/markburnham/dev/textToSpeech/1615204496/6.mp3
-Audio content written to file /Users/markburnham/dev/textToSpeech/1615204496/7.mp3
-Audio content written to file /Users/markburnham/dev/textToSpeech/1615204496/8.mp3
+~/dev/textToSpeech % ./text2speech.py -f snippet.txt -v1 en-US-Wavenet-H -v2 en-US-Wavenet-J
+Processing file: snippet.txt
+Voice 1: en-US-Wavenet-H
+Voice 2: en-US-Wavenet-J
+Output Path:/Users/markburnham/dev/textToSpeech/1615648935                         <= you'll need this in the next 2 steps
+Audio content written to file /Users/markburnham/dev/textToSpeech/1615648935/1.mp3
+Audio content written to file /Users/markburnham/dev/textToSpeech/1615648935/2.mp3
+Audio content written to file /Users/markburnham/dev/textToSpeech/1615648935/3.mp3
+Audio content written to file /Users/markburnham/dev/textToSpeech/1615648935/4.mp3
+Audio content written to file /Users/markburnham/dev/textToSpeech/1615648935/5.mp3
+Audio content written to file /Users/markburnham/dev/textToSpeech/1615648935/6.mp3
+Audio content written to file /Users/markburnham/dev/textToSpeech/1615648935/7.mp3
+Audio content written to file /Users/markburnham/dev/textToSpeech/1615648935/8.mp3
 ```
 
-#### 4) cd into the new directory
-% cd 1615204496
-
+#### 4) cd into the newly created directory
+```
+% cd /Users/markburnham/dev/textToSpeech/1615648935
+```
 #### 5) create a file to be used by ffmpeg to concatenate the mp3 files
+
+NOTE: The format of "filelist" is important
+
 ```
 % ls -ltr *.mp3|awk '{print "file '\''<output path from step 3>/"$NF"'\''"}' > filelist
+
+example =>
+~/dev/textToSpeech/1615648935 % ls -ltr *.mp3|awk '{print "file '\''/Users/markburnham/dev/textToSpeech/1615648935/"$NF"'\''"}' > filelist
+~/dev/textToSpeech/1615648935 % cat filelist
+file '/Users/markburnham/dev/textToSpeech/1615648935/1.mp3'
+file '/Users/markburnham/dev/textToSpeech/1615648935/2.mp3'
+file '/Users/markburnham/dev/textToSpeech/1615648935/3.mp3'
+file '/Users/markburnham/dev/textToSpeech/1615648935/4.mp3'
+file '/Users/markburnham/dev/textToSpeech/1615648935/5.mp3'
+file '/Users/markburnham/dev/textToSpeech/1615648935/6.mp3'
+file '/Users/markburnham/dev/textToSpeech/1615648935/7.mp3'
+file '/Users/markburnham/dev/textToSpeech/1615648935/8.mp3'
 ```
-#### 6) use ffmpeg to process the filelist you created - this will concatenate the single files into one mp3
+#### 6) use ffmpeg to process the filelist you created - this will concatenate the single files into a single mp3
 
 ```
-~/dev/textToSpeech/1615204496 % ffmpeg -f concat -safe 0 -i filelist -c copy snippet.mp3
+~/dev/textToSpeech/1615648935 % ffmpeg -f concat -safe 0 -i filelist -c copy snippet.mp3
 ffmpeg version 4.3.1 Copyright (c) 2000-2020 the FFmpeg developers
   built with Apple clang version 12.0.0 (clang-1200.0.32.28)
   configuration: --prefix=/usr/local/Cellar/ffmpeg/4.3.1_7 --enable-shared --enable-pthreads --enable-version3 --enable-avresample --cc=clang --host-cflags= --host-ldflags= --enable-ffplay --enable-gnutls --enable-gpl --enable-libaom --enable-libbluray --enable-libdav1d --enable-libmp3lame --enable-libopus --enable-librav1e --enable-librubberband --enable-libsnappy --enable-libsrt --enable-libtesseract --enable-libtheora --enable-libvidstab --enable-libvorbis --enable-libvpx --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxml2 --enable-libxvid --enable-lzma --enable-libfontconfig --enable-libfreetype --enable-frei0r --enable-libass --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libopenjpeg --enable-librtmp --enable-libspeex --enable-libsoxr --enable-videotoolbox --enable-libzmq --enable-libzimg --disable-libjack --disable-indev=jack
@@ -65,7 +84,7 @@ ffmpeg version 4.3.1 Copyright (c) 2000-2020 the FFmpeg developers
   libswscale      5.  7.100 /  5.  7.100
   libswresample   3.  7.100 /  3.  7.100
   libpostproc    55.  7.100 / 55.  7.100
-[mp3 @ 0x7fb0f4812e00] Estimating duration from bitrate, this may be inaccurate
+[mp3 @ 0x7fa635809000] Estimating duration from bitrate, this may be inaccurate
 Input #0, concat, from 'filelist':
   Duration: N/A, start: 0.000000, bitrate: 32 kb/s
     Stream #0:0: Audio: mp3, 24000 Hz, mono, fltp, 32 kb/s
@@ -76,14 +95,14 @@ Output #0, mp3, to 'snippet.mp3':
 Stream mapping:
   Stream #0:0 -> #0:0 (copy)
 Press [q] to stop, [?] for help
-[mp3 @ 0x7fb0f680bc00] Estimating duration from bitrate, this may be inaccurate
-[mp3 @ 0x7fb0f580e800] Estimating duration from bitrate, this may be inaccurate
-    Last message repeated 1 times
-[mp3 @ 0x7fb0f4813800] Estimating duration from bitrate, this may be inaccurate
-[mp3 @ 0x7fb0f680b000] Estimating duration from bitrate, this may be inaccurate
-[mp3 @ 0x7fb0f580e800] Estimating duration from bitrate, this may be inaccurate
-[mp3 @ 0x7fb0f4813800] Estimating duration from bitrate, this may be inaccurate
-size=     113kB time=00:00:28.89 bitrate=  32.1kbits/s speed=1.38e+03x    
+[mp3 @ 0x7fa637017200] Estimating duration from bitrate, this may be inaccurate
+[mp3 @ 0x7fa63600b000] Estimating duration from bitrate, this may be inaccurate
+[mp3 @ 0x7fa637810200] Estimating duration from bitrate, this may be inaccurate
+[mp3 @ 0x7fa63601c600] Estimating duration from bitrate, this may be inaccurate
+[mp3 @ 0x7fa637017200] Estimating duration from bitrate, this may be inaccurate
+[mp3 @ 0x7fa637010400] Estimating duration from bitrate, this may be inaccurate
+[mp3 @ 0x7fa637810200] Estimating duration from bitrate, this may be inaccurate
+size=     113kB time=00:00:28.89 bitrate=  32.1kbits/s speed=1.13e+03x    
 video:0kB audio:113kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: 0.204876%
 ```
 
