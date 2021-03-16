@@ -5,11 +5,6 @@ NOTE: I used http://rev.com for the transcription from an audio recording.  They
 
 The processes were tested on MacOS, Big Sur, you'll likely need to modify for other systems.
 
-### Functions
-
-#### synthesize_ssml
-#### process_txt_block
-
 You will need to install ffmpeg and afplay to follow these instructions
 
 ### STEP BY STEP
