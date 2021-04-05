@@ -1,8 +1,6 @@
 # text-to-speech
 I did a feasbility study to see if synthesized voices could be used for a podcast.  This sample script can be used to generate an mp3 speech file from a text transcript using Google Text-to-Speech
 
-NOTE: I used http://rev.com for the transcription from an audio recording.  They augment ML with people.  It was much more accurate than the text generated from Google Speech-To-Text.  
-
 The processes were tested on MacOS, Big Sur, you'll likely need to modify for other systems.
 
 You will need to install ffmpeg and afplay to follow these instructions
