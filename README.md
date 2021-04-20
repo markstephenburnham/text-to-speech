@@ -3,7 +3,7 @@ I recently did a feasbility study to see if synthesized voices could be used for
 
 The processes were tested on MacOS, Big Sur, you'll likely need to modify for other systems.
 
-You will need to install ffmpeg and afplay to follow these instructions
+You will need to install ffmpeg and afplay to follow these instructions.
 
 ### STEP BY STEP
 
